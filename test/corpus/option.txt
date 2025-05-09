@@ -11,6 +11,7 @@ option int_oct_lit = 070;
 option int_hex_lit = 0xDEADBEEF;
 option int_neg_hex_lit = -0xDEADBEEF;
 option int_pos_hex_lit = +0xDEADBEEF;
+option features.utf8_validation = NONE;
 option int_float_lit = 1.2345;
 
 --------------------------------------------------------------------------------
@@ -51,6 +52,11 @@ option int_float_lit = 1.2345;
       (identifier))
     value: (int_lit
       (hex_lit)))
+  (option
+    name: (option_name
+      (identifier) (identifier))
+    value: (full_ident
+      (identifier)))
   (option
     name: (option_name
       (identifier))

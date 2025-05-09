@@ -16,6 +16,7 @@ message Outer {
   EnumAllowingAlias enum_field =3;
   map<int32, string> my_map = 4;
   required string _string_field = 5;
+  .absolute.package.to.OtherMessage another_field = 6;
 
   extend package.to.SubMessage {
     string extension_field = 100;
@@ -89,6 +90,18 @@ extend another.Message {
             (decimal_lit))))
       (field
         (type)
+        (field_name
+          (identifier))
+        (field_number
+          (int_lit
+            (decimal_lit))))
+      (field
+        (type
+          (message_or_enum_type
+            (identifier)
+            (identifier)
+            (identifier)
+            (identifier)))
         (field_name
           (identifier))
         (field_number

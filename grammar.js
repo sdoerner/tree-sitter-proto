@@ -67,7 +67,10 @@ module.exports = grammar({
     ),
 
     option_name: $ => choice(
-      $.identifier,
+      seq(
+        $.identifier,
+        repeat(seq('.', $.identifier)),
+      ),
       seq(
         seq('(', $.full_ident, ')'),
         repeat(seq('.', $.identifier)),
@@ -135,6 +138,7 @@ module.exports = grammar({
 
     extend: $ => seq(
       'extend',
+      optional('.'),
       $.full_ident,
       $.message_body,
     ),
